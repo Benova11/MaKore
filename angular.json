@@ -28,7 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "src/less/styles.less"
             ],
             "scripts": []
           },
@@ -88,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/less/styles.less"
             ],
             "scripts": []
           }
@@ -119,6 +123,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "MaKore"
+    }
+  },
+  "defaultProject": "MaKore",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "less"
+    }
+  }
 }
