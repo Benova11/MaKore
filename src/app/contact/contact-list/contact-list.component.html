@@ -10,16 +10,12 @@
         </div>
         <div class="p-col-12">
           <hr>
-          <p-orderList [value]="messages" controlsPosition="right" (onSelectionChange)="onSelectionChange($event)">
-            <ng-template let-msg pTemplate="item">
+          <p-orderList [value]="user" controlsPosition="right" (onSelectionChange)="onSelectionChange($event)">
+            <ng-template let-user pTemplate="item">
               <div class="ui-helper-clearfix">
-                <app-msg-item [msg]="msg" [onEdit]="options" [userImg]="tmpUserprofImg"></app-msg-item>
-              </div>
+                  <app-contact-item [user]="user"></app-contact-item>              </div>
             </ng-template>
           </p-orderList>
         </div>
       </div>
 </p-card>
-
-
-

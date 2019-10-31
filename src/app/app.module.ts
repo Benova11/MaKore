@@ -9,11 +9,16 @@ import { ToolbarModule } from 'primeng/toolbar';
 import {OrderListModule} from 'primeng/orderlist';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import {CardModule} from 'primeng/card';
 import { HeaderComponent } from './header/header.component';
 import { ChatWindowComponent } from './chat/chat-window/chat-window.component';
 import { ContactInfoComponent } from './chat/chat-window/contact-info/contact-info.component';
 import { ConversationComponent } from './chat/chat-window/conversation/conversation.component';
 import { TypingComponent } from './chat/chat-window/conversation/typing/typing.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { EditContactComponent } from './contact/contact-list/edit-contact/edit-contact.component';
+import { ContactItemComponent } from './contact/contact-list/contact-item/contact-item.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +31,18 @@ import { TypingComponent } from './chat/chat-window/conversation/typing/typing.c
     ContactInfoComponent,
     ConversationComponent,
     TypingComponent,
+    ContactComponent,
+    ContactListComponent,
+    EditContactComponent,
+    ContactItemComponent,
   ],
   imports: [
     BrowserModule,
     ToolbarModule,
     ButtonModule,
     ToastModule,
-    OrderListModule
+    OrderListModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

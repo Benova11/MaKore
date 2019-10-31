@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Msg } from '../msg.model';
+import { Msg } from '../../shared/msg.model';
 
 @Component({
   selector: 'app-msg-item',
@@ -10,7 +10,8 @@ import { Msg } from '../msg.model';
 export class MsgItemComponent implements OnInit {
   index: number;
   @Input() msg: Msg;
-  @Input() onEdit = false;
+  @Input() userImg: string;
+  @Input() onEdit: boolean = false;
   constructor() { }
 
   ngOnInit() {

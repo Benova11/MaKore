@@ -1,11 +1,15 @@
-<div class="ui-orderlist-item">
-  <img src="" alt="userImage" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+<div>
+  <img [src]="userImg"
+  alt="{{msg.userName}}"
+  style="display:inline-block;margin:2px 0 2px 2px;float: right;"
+  width="48">
   <div class="msgItemDiv">
     <span>{{msg.userName}}</span>
     <br>
-    <p>{{msg.lastMsg}}</p>
+    <p>{{msg.msgBody}}</p>
     <span>{{index}}</span>
   </div>
+  <span style="float: left">00:00</span>
   <button pButton type="button" label="Erase" class="ui-button-rounded ui-button-danger" *ngIf="onEdit"></button>
 </div>
 

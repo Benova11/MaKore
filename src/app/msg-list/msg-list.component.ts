@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Msg } from './msg.model';
+import { Msg } from '../shared/msg.model';
 
 @Component({
   selector: 'app-msg-list',
@@ -9,16 +9,17 @@ import { Msg } from './msg.model';
 })
 export class MsgListComponent implements OnInit {
   messages: Msg [];
-  options = false;
+  options: boolean = false;
+  tmpUserprofImg = 'https://cdn.pixabay.com/photo/2019/02/16/16/12/coming-soon-4000552_960_720.png';
 
   constructor() { }
 
   ngOnInit() {
     this.messages = [
-      {userName : 'admin', lastMsg: 'See You', index: null},
-      {userName : 'root', lastMsg: 'Ok You 2', index: null},
-      {userName : 'admin', lastMsg: 'See You', index: null},
-      {userName : 'root', lastMsg: 'Ok You 2', index: null}
+      {userName : 'admin', msgBody: 'See You', index: null},
+      {userName : 'root', msgBody: 'Ok You 2', index: null},
+      {userName : 'admin', msgBody: 'See You', index: null},
+      {userName : 'root', msgBody: 'Ok You 2', index: null}
     ];
     this.addIndex();
   }

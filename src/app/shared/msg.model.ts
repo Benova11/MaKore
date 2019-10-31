@@ -1,5 +1,5 @@
 export interface Msg {
   userName: string;
-  lastMsg: string;
+  msgBody: string;
   index: number;
 }

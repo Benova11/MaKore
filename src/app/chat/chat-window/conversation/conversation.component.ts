@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Msg } from 'src/app/shared/msg.model';
 
 @Component({
   selector: 'app-conversation',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversationComponent implements OnInit {
 
+  @Input() messages: Msg[];
   constructor() { }
 
   ngOnInit() {
