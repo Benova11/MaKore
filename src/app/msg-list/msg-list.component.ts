@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Injectable } from '@angular/core';
 
 import { Msg } from '../shared/msg.model';
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
   selector: 'app-msg-list',
@@ -9,23 +10,19 @@ import { Msg } from '../shared/msg.model';
 })
 export class MsgListComponent implements OnInit {
   messages: Msg [];
-  options: boolean = false;
+  options: boolean;
   tmpUserprofImg = 'https://cdn.pixabay.com/photo/2019/02/16/16/12/coming-soon-4000552_960_720.png';
 
-  constructor() { }
+  constructor(private msgService: MessagesService) { }
 
   ngOnInit() {
-    this.messages = [
-      {userName : 'admin', msgBody: 'See You', index: null},
-      {userName : 'root', msgBody: 'Ok You 2', index: null},
-      {userName : 'admin', msgBody: 'See You', index: null},
-      {userName : 'root', msgBody: 'Ok You 2', index: null}
-    ];
+    this.options = false;
+    this.messages = this.msgService.getMessages();
     this.addIndex();
   }
 
   onSelectionChange(eventData) {
-    console.log(eventData.value);
+    console.log("onSelectionChange" + eventData.value);
   }
 
   onClickNew() {
@@ -38,5 +35,12 @@ export class MsgListComponent implements OnInit {
       this.messages[index].index = +index;
       }
     }
+  }
+
+  onEraseMsg(eventData: { userName: string; msgBody: string; index: number; }) {
+    const newMessages = this.messages.filter((msg) => {
+      return msg.index !== eventData.index;
+    });
+    this.messages = newMessages;
   }
 }

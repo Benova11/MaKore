@@ -7,10 +7,9 @@
     <span>{{msg.userName}}</span>
     <br>
     <p>{{msg.msgBody}}</p>
-    <span>{{index}}</span>
   </div>
   <span style="float: left">00:00</span>
-  <button pButton type="button" label="Erase" class="ui-button-rounded ui-button-danger" *ngIf="onEdit"></button>
+  <button pButton type="button" label="Erase" class="ui-button-rounded ui-button-danger" *ngIf="onEdit" (click)="onErase()"></button>
 </div>
 
 

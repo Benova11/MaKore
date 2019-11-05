@@ -1,21 +1,21 @@
 <p-card>
-    <div class="p-grid">
-        <div class="p-col-12">
-          <button pButton type="button" label="New" class="ui-button-raised" (click)="onClickNew()"></button>
-          <button pButton type="button" label="Options" class="ui-button-raised ui-button-warning" (click)="options = !options"></button>
-          <span class="ui-float-label" style="display: inline-block">
-              <input id="float-input" type="text" size="30" pInputText>
-              <label for="float-input">Search</label>
-          </span>
-        </div>
-        <div class="p-col-12">
-          <hr>
-          <p-orderList [value]="user" controlsPosition="right" (onSelectionChange)="onSelectionChange($event)">
-            <ng-template let-user pTemplate="item">
-              <div class="ui-helper-clearfix">
-                  <app-contact-item [user]="user"></app-contact-item>              </div>
-            </ng-template>
-          </p-orderList>
-        </div>
-      </div>
+  <div class="p-grid">
+    <div class="p-col-12">
+      <button pButton type="button" label="New" class="ui-button-raised"></button>
+      <button pButton type="button" label="Options" class="ui-button-raised ui-button-warning" (click)="options = !options"></button>
+      <span class="ui-float-label" style="display: inline-block">
+          <input id="float-input" type="text" size="30" pInputText>
+          <label for="float-input">Search</label>
+      </span>
+    </div>
+    <div class="p-col-12">
+      <hr>
+      <p-orderList [value]="user" controlsPosition="right" (onSelectionChange)="onSelectionChange($event)">
+        <ng-template let-user pTemplate="item">
+          <div class="ui-helper-clearfix">
+              <app-contact-item [user]="user"></app-contact-item>              </div>
+        </ng-template>
+      </p-orderList>
+    </div>
+  </div>
 </p-card>

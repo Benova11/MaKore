@@ -1,15 +1,32 @@
 <div class="p-grid">
   <div class="p-col">
       <ul>
-        <li>Hey</li>
-        <li>Hello</li>
-        <li>Whatapp</li>
-        <li>Im Good</li>
-        <li>Ok</li>
+        <li *ngFor="let msg of messages" #msgItem class="speech-bubble">
+          <div class="p-grid">
+            <div class="p-col-10">
+                <img [src]=tmpUserprofImg
+                alt="{{msg.userName}}"
+                style="display:inline-block;border-radius: 30px;"
+                width="48">
+                <div class="msgItemDiv">
+                  <span>{{msg.userName}}</span>
+                  <br>
+                  <p>{{msg.msgBody}}</p>
+                </div>
+            </div>
+            <div class="p-col-2">
+                <button type="button" class="actionButton" (click)="action(msgItem)" style="float: right;"><i class="pi pi-ellipsis-v"></i></button>
+                <br>
+                <span>00:00</span>
+            </div>
+          </div>
+        </li>
       </ul>
   </div>
 </div>
-<app-typing></app-typing>
+<p-footer>
+    <app-typing (msgSubmitted)="updateMessages()"></app-typing>
+</p-footer>
 
 
 
