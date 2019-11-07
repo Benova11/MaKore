@@ -1,6 +1,8 @@
 <div class="p-grid">
   <div class="p-col">
       <ul>
+        <p *ngIf=isSocket>Socket</p>
+        <p *ngIf=!isSocket>Polling</p>
         <li *ngFor="let msg of messages" #msgItem class="speech-bubble">
           <div class="p-grid">
             <div class="p-col-10">
@@ -25,7 +27,7 @@
   </div>
 </div>
 <p-footer>
-    <app-typing (msgSubmitted)="updateMessages()"></app-typing>
+    <app-typing></app-typing>
 </p-footer>
 
 

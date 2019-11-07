@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
@@ -20,7 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { EditContactComponent } from './contact/contact-list/edit-contact/edit-contact.component';
 import { ContactItemComponent } from './contact/contact-list/contact-item/contact-item.component';
-import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ToolbarModule,
     ButtonModule,
     ToastModule,

@@ -1,24 +1,32 @@
-import { Component, OnInit, EventEmitter, Output, Injectable } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Injectable, OnDestroy } from '@angular/core';
 
 import { Msg } from '../shared/msg.model';
 import { MessagesService } from '../shared/messages.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-msg-list',
   templateUrl: './msg-list.component.html',
   styleUrls: ['./msg-list.component.less']
 })
-export class MsgListComponent implements OnInit {
+export class MsgListComponent implements OnInit,OnDestroy {
   messages: Msg [];
   options: boolean;
   tmpUserprofImg = 'https://cdn.pixabay.com/photo/2019/02/16/16/12/coming-soon-4000552_960_720.png';
+  msgServiceSubs: Subscription;
 
   constructor(private msgService: MessagesService) { }
 
   ngOnInit() {
     this.options = false;
-    this.messages = this.msgService.getMessages();
-    this.addIndex();
+    this.msgService.getMessages();
+    this.msgServiceSubs = this.msgService.msgsUpdatedByPolling.subscribe(
+      (msgs) => {
+        this.messages = msgs;
+        this.addIndex();
+      }
+    );
+
   }
 
   onSelectionChange(eventData) {
@@ -42,5 +50,9 @@ export class MsgListComponent implements OnInit {
       return msg.index !== eventData.index;
     });
     this.messages = newMessages;
+  }
+
+  ngOnDestroy() {
+    this.msgServiceSubs.unsubscribe();
   }
 }

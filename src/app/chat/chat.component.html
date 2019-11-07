@@ -3,10 +3,10 @@
     <p-card>
       <div class="p-grid" >
         <div class="p-col-6" >
-          <app-chat-window></app-chat-window>
+          <app-chat-window [socket]=true></app-chat-window>
         </div>
         <div class="p-col-6">
-          <app-chat-window></app-chat-window>
+          <app-chat-window [socket]=false></app-chat-window>
         </div>
       </div>
     </p-card>

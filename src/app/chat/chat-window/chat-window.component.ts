@@ -9,8 +9,9 @@ import { Msg } from 'src/app/shared/msg.model';
 })
 export class ChatWindowComponent implements OnInit {
 
+  @Input() socket: boolean;
   @Input() messages: Msg[];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
