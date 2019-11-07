@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Msg } from '../msg.model';
+import { Msg } from '../../shared/msg.model';
 
 @Component({
   selector: 'app-msg-item',
@@ -10,10 +10,18 @@ import { Msg } from '../msg.model';
 export class MsgItemComponent implements OnInit {
   index: number;
   @Input() msg: Msg;
-  @Input() onEdit = false;
-  constructor() { }
+  @Input() userImg: string;
+  @Input() onEdit: boolean;
+
+  @Output() msgErased = new EventEmitter<Msg>();
+  constructor() {}
 
   ngOnInit() {
+    this.onEdit = false;
     this.index = this.msg.index;
+  }
+
+  onErase() {
+    this.msgErased.emit(this.msg);
   }
 }

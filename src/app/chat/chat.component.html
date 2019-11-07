@@ -1,8 +1,17 @@
-<div class="p-grid">
-  <div class="p-col-7">
-    <app-chat-window ></app-chat-window>
+<div class="p-grid chatWindow">
+  <div class="p-col-8">
+    <p-card>
+      <div class="p-grid" >
+        <div class="p-col-6" >
+          <app-chat-window [socket]=true></app-chat-window>
+        </div>
+        <div class="p-col-6">
+          <app-chat-window [socket]=false></app-chat-window>
+        </div>
+      </div>
+    </p-card>
   </div>
-  <div class="p-col-5">
+  <div class="p-col-4">
     <app-msg-list></app-msg-list>
   </div>
 </div>

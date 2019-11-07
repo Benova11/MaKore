@@ -2,13 +2,15 @@
   <div class="ui-toolbar-group-left">
       <label class="appName">MaKore</label>
   </div>
-
   <div class="ui-toolbar-group-right">
       <span class="helloMsg" *ngIf="!isLoggedIn">Hello Guest</span>
       <span *ngIf="isLoggedIn">Hello User</span>
       <button pButton type="button" icon="pi pi-ellipsis-h" *ngIf="isLoggedIn"></button>
       <button pButton type="button" icon="pi pi-sign-in" class="ui-button-success" *ngIf="!isLoggedIn"></button>
       <button pButton type="button" icon="pi pi-sign-out" class="ui-button-danger" *ngIf="isLoggedIn"></button>
+      <!--
+      <button pButton type="button" class="ui-button-information">Contacts</button>
+       -->
   </div>
 </p-toolbar>
 
